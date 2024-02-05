@@ -2,13 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
-<<<<<<< HEAD
-import Navbar from "../navbar";
 import MediaRow from "../media-row";
-=======
 import Navbar from '../Navbar';
-import MediaRow from '../media-row';
->>>>>>> aebcee7edd97e8098cbd13fe341eac4b438fe205
 import Banner from "../banner";
 
 function CommonLayout({ mediaData }) {
@@ -46,8 +41,4 @@ function CommonLayout({ mediaData }) {
   );
 }
 
-<<<<<<< HEAD
 export default CommonLayout;
-=======
-export default CommonLayout
->>>>>>> aebcee7edd97e8098cbd13fe341eac4b438fe205
