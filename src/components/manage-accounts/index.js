@@ -34,8 +34,8 @@ export default function ManageAccount() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async function getAllAccounts() {
-        const res = await fetch(`api/account/get-all-accounts?id=${session?.user?.uid}`, { method: "GET" }).then((success)=>console.log(success)).catch((err)=>console.log(err))
-        const data = await res.json()
+        const res = await fetch(`api/account/get-all-accounts?id=${session?.user?.uid}`, { method: "GET" })
+        const data = await res.json().then((success) => console.log(success)).catch((err) => console.log(err))
         if (data && data.data && data.data.length) {
             setAccounts(data.data)
             setPageLoader(false)
@@ -59,8 +59,8 @@ export default function ManageAccount() {
                 ...formData,
                 uid: session?.user?.uid,
             }),
-        }).then((success)=>console.log(success)).catch((err)=>console.log(err))
-        const data = await res.json()
+        })
+        const data = await res.json().then((success) => console.log(success)).catch((err) => console.log(err))
         if (data.success) {
             getAllAccounts()
             setFormData(initialFormData)
