@@ -121,6 +121,7 @@ export default function GlobalState({ children }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
+    const [showAccountPopup, setShowAccountPopup] = useState(false);
 
     const router = useRouter();
     const pathName = usePathname();
