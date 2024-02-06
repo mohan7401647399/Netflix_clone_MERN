@@ -8,6 +8,8 @@ import { useParams } from "next/navigation";
 
 export const GlobalContext = createContext(null)
 
+const initialFormData = { name: "", pin: "" };
+
 export default function GlobalState({ children }) {
 
     const [LoggedIn, setLoggedIn] = useState(null);
@@ -28,10 +30,18 @@ export default function GlobalState({ children }) {
     const [searchQuery, setSearchQuery] = useState("");
     const [showAccountPopup, setShowAccountPopup] = useState(false);
     const [showCurrentAns, setShowCurrentAns] = useState(null);
+    const [showAccountForm, setShowAccountForm] = useState(false);
+    const [formData, setFormData] = useState(initialFormData);
+    const [showDeleteIcon, setShowDeleteIcon] = useState(false);
+    const [pin, setPin] = useState("");
+    const [pinError, setPinError] = useState(false);
+    const [showPinContainer, setShowPinContainer] = useState({ show: false, account: null, });
+
 
     const router = useRouter();
     const pathName = usePathname();
     const params = useParams();
+
 
     const baseUrl = "https://image.tmdb.org/t/p/original";
     const baseUrlmediaItem = "https://image.tmdb.org/t/p/w500";
@@ -75,7 +85,7 @@ export default function GlobalState({ children }) {
     if (session === undefined) return <CircleLoader />
 
     return (
-        <GlobalContext.Provider value={{ LoggedIn, setLoggedIn, accounts, setAccounts, pageLoader, setPageLoader, loggedInAccount, setLoggedInAccount, mediaData, setMediaData, searchResults, setSearchResults, currentMediaInfoIdAndType, setCurrentMediaInfoIdAndType, showDetailsPopup, setShowDetailsPopup, mediaDetails, setMediaDetails, similarMedias, setSimilarMedias, favorites, setFavorites, key, setKey, router, data: session, pathName, data: session, isScrolled, setIsScrolled, showSearchBar, setShowSearchBar, searchQuery, setSearchQuery, showAccountPopup, setShowAccountPopup, baseUrl, baseUrlmediaItem, params, questions, showCurrentAns, setShowCurrentAns }}>
+        <GlobalContext.Provider value={{ LoggedIn, setLoggedIn, accounts, setAccounts, pageLoader, setPageLoader, loggedInAccount, setLoggedInAccount, mediaData, setMediaData, searchResults, setSearchResults, currentMediaInfoIdAndType, setCurrentMediaInfoIdAndType, showDetailsPopup, setShowDetailsPopup, mediaDetails, setMediaDetails, similarMedias, setSimilarMedias, favorites, setFavorites, key, setKey, router, data: session, pathName, data: session, isScrolled, setIsScrolled, showSearchBar, setShowSearchBar, searchQuery, setSearchQuery, showAccountPopup, setShowAccountPopup, baseUrl, baseUrlmediaItem, params, questions, showCurrentAns, setShowCurrentAns, initialFormData, showAccountForm, setShowAccountForm, formData, setFormData, showDeleteIcon, setShowDeleteIcon, pin, setPin, pinError, setPinError, showPinContainer, setShowPinContainer }}>
             {children}
         </GlobalContext.Provider>
     )
