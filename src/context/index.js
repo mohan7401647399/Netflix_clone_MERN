@@ -122,6 +122,7 @@ export default function GlobalState({ children }) {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [showAccountPopup, setShowAccountPopup] = useState(false);
+    const [showCurrentAns, setShowCurrentAns] = useState(null);
 
     const router = useRouter();
     const pathName = usePathname();
