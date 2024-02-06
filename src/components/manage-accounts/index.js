@@ -15,7 +15,7 @@ export default function ManageAccount() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async function getAllAccounts() {
         const res = await fetch(`/api/account/get-all-accounts?id=${session?.user?.uid}`, { method: "GET" })
-        const data = await res.json().then((success) => console.log(success)).catch((err) => console.log(err))
+        const data = await res.json().then((rec) => console.log(rec)).catch((err) => console.log(err))
         if (data && data.data && data.data.length) {
             setAccounts(data.data)
             setPageLoader(false)
@@ -40,14 +40,14 @@ export default function ManageAccount() {
                 uid: session?.user?.uid,
             }),
         })
-        const data = await res.json().then((success) => console.log(success)).catch((err) => console.log(err))
-        // if (data.success) {
-        if (data) {
-            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
+        const data = await res.json().then((rec) => console.log(rec)).catch((err) => console.log(err))
+         if (data.success) {
+       // if (data) {
+            getAllAccounts().then((rec) => console.log(rec)).catch((err) => console.log(err))
             setFormData(initialFormData)
             setShowAccountForm(false)
         } else {
-            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
+            getAllAccounts().then((rec) => console.log(rec)).catch((err) => console.log(err))
         }
     };
 
@@ -56,9 +56,9 @@ export default function ManageAccount() {
             method: "DELETE",
         });
         const data = await res.json();
-        // if (data.success) {
-        if (data) {
-            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
+        if (data.success) {
+       // if (data) {
+            getAllAccounts().then((rec) => console.log(rec)).catch((err) => console.log(err))
             setShowDeleteIcon(false);
         }
     }
