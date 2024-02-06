@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req) {
   try {
-    await connectToDB();
+    await connectToDB().then((response) => console.log(response)).catch(err => console.log(err));
 
     const { pin, accountId, uid } = await req.json();
 
