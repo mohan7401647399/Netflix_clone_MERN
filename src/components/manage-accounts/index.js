@@ -1,36 +1,16 @@
 'use client'
 
 import { GlobalContext } from "@/context"
-import { useSession } from "next-auth/react"
 import { useContext, useEffect, useState } from "react"
 import CircleLoader from "../circle-loader/circle-loader";
 import AccountForm from "./account-form";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import PinContainer from "./pin-container";
-import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-
-const initialFormData = {
-    name: "",
-    pin: "",
-};
 
 export default function ManageAccount() {
 
-    const { accounts, setAccounts, pageLoader, setPageLoader, setLoggedInAccount } = useContext(GlobalContext);
-    const [showAccountForm, setShowAccountForm] = useState(false);
-    const [formData, setFormData] = useState(initialFormData);
-    const [showDeleteIcon, setShowDeleteIcon] = useState(false);
-    const [pin, setPin] = useState("");
-    const [pinError, setPinError] = useState(false);
-    const [showPinContainer, setShowPinContainer] = useState({
-        show: false,
-        account: null,
-    });
-    const { data: session } = useSession();
-    const pathname = usePathname();
-    const router = useRouter();
-
+    const { data: session, accounts, setAccounts, pageLoader, setPageLoader, setLoggedInAccount, pathname, router, initialFormData, showAccountForm, setShowAccountForm, formData, setFormData, showDeleteIcon, setShowDeleteIcon, pin, setPin, pinError, setPinError, showPinContainer, setShowPinContainer } = useContext(GlobalContext);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async function getAllAccounts() {
@@ -46,7 +26,7 @@ export default function ManageAccount() {
 
     useEffect(() => {
         getAllAccounts().then((response) => console.log(response)).catch(err => console.log(err))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     async function handleSave() {
@@ -61,12 +41,13 @@ export default function ManageAccount() {
             }),
         })
         const data = await res.json().then((success) => console.log(success)).catch((err) => console.log(err))
-        if (data.success) {
-            getAllAccounts()
+        // if (data.success) {
+        if (data) {
+            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
             setFormData(initialFormData)
             setShowAccountForm(false)
         } else {
-            getAllAccounts()
+            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
         }
     };
 
@@ -75,8 +56,9 @@ export default function ManageAccount() {
             method: "DELETE",
         });
         const data = await res.json();
-        if (data.success) {
-            getAllAccounts();
+        // if (data.success) {
+        if (data) {
+            getAllAccounts().then((success) => console.log(success)).catch((err) => console.log(err))
             setShowDeleteIcon(false);
         }
     }
@@ -116,7 +98,7 @@ export default function ManageAccount() {
         <div className="min-h-screen flex justify-center flex-col items-center relative">
             <div className="flex justify-center flex-col items-center">
                 <h1 className="text-white font-bold text-[54px] my-[36px]">
-                    Who&apos;s Watching?
+                    Who's Watching?
                 </h1>
                 <ul className="flex p-0 my-[25px]">
                     {
@@ -131,8 +113,8 @@ export default function ManageAccount() {
                             >
                                 <div className="relative">
                                     <Image
-                                    width={100}
-                                    height={100}
+                                        width={100}
+                                        height={100}
                                         src="https://occ-0-2611-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABfNXUMVXGhnCZwPI1SghnGpmUgqS_J-owMff-jig42xPF7vozQS1ge5xTgPTzH7ttfNYQXnsYs4vrMBaadh4E6RTJMVepojWqOXx.png?r=1d4"
                                         alt="Account"
                                         className="max-w-[200px] rounded min-w-[84px] max-h-[200px] min-h-[84px] object-cover w-[155px] h-[155px]"
