@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req) {
   try {
-    await connectToDB();
+    await connectToDB().then((response) => console.log(response)).catch(err => console.log(err));
 
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
