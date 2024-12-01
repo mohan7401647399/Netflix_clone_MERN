@@ -15,7 +15,7 @@ A full-stack Netflix clone application built using the MERN stack (MongoDB, Expr
   Admin Features:
     (Optional) Manage content and user data via an admin interface.
 
-## Features
+# Features
 
 - **User Authentication**: Secure login and registration using JWT and bcrypt.
 - **Browse and Search**: Explore movies and TV shows by categories and genres.
@@ -25,33 +25,33 @@ A full-stack Netflix clone application built using the MERN stack (MongoDB, Expr
 - **Playback Simulation**: Simulated streaming with movie trailers or placeholder content.
 - **Admin Panel**: Manage users, movies, and categories (if implemented).
 
-## Technologies Used
+# Technologies Used
 
-### Frontend
+# Frontend
 - **React.js**: Dynamic and component-based user interface.
 - **React Router**: Client-side routing for seamless navigation.
 - **Axios**: Simplified HTTP requests to the backend.
 - **CSS/SCSS**: Netflix-like styling.
 
-### Backend
+# Backend
 - **Node.js**: Server-side JavaScript runtime.
 - **Express.js**: Lightweight backend framework for API routes.
 - **JWT (JSON Web Tokens)**: Secure token-based authentication.
 - **bcrypt**: Password encryption.
 
-### Database
+# Database
 - **MongoDB**: NoSQL database for scalable data storage.
 - **Mongoose**: MongoDB object data modeling (ODM).
 
-## Installation
+# Installation
 
 Follow these steps to set up and run the project locally.
 
-### Prerequisites
+# Prerequisites
 - Install [Node.js](https://nodejs.org/)
 - Install [MongoDB](https://www.mongodb.com/try/download/community) locally or use a MongoDB Atlas cluster.
 
-### Steps
+# Steps
 
 1. Clone the repository:
    ```bash
