@@ -3,6 +3,7 @@
 A full-stack Netflix clone application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project mimics the core functionality of Netflix, including user authentication, movie browsing, and streaming capabilities, providing a great learning experience in building a scalable and interactive web application.
 
 ## Usage
+   ```bash
   User Registration and Login:
     Create an account and log in with secure credentials.
   Explore Movies:
