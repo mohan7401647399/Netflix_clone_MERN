@@ -5,7 +5,7 @@ A full-stack Netflix clone application built using the MERN stack (MongoDB, Expr
 # Usage
 
   User Registration and Login:
-    Create an account and log in with secure credentials.
+    - Create an account and log in with secure credentials.
   Explore Movies:
     Browse the movie catalog and view detailed information.
   Search and Filter:
